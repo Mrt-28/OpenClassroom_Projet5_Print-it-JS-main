@@ -79,7 +79,7 @@ arrowLeft.addEventListener("contextmenu", function (event) {
 });
 
 function updateSlide(){
-	bannerImg.src = `./assets/images/slideshow/${slides[i].image}`;
+	bannerImg.src = preloadedImages[i].src;
 	bannerText.innerHTML = slides[i].tagLine;
 }
 
