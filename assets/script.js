@@ -17,6 +17,15 @@ const slides = [
 	}
 ]
 
+
+const preloadedImages = [];
+
+for (let i = 0; i < slides.length; i++) {
+	const img = new Image();
+	img.src = `./assets/images/slideshow/${slides[i].image}`;
+	preloadedImages.push(img);
+}
+
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector(".banner-text");
 
@@ -52,7 +61,7 @@ arrowRight.addEventListener("mousedown", function (event) {
 arrowRight.addEventListener("contextmenu", function (event) {
 	event.preventDefault();
 }); 
- 
+
 arrowLeft.addEventListener("mousedown", function(event) {
 	if (event.button === 0) {
 		if(i>0){
