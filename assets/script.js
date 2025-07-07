@@ -37,25 +37,36 @@ for (let i = 0; i < slides.length; i++) {
 }
 
 let i=0;
-arrowRight.addEventListener("click", function () {
-	if(i<dots.length-1){
-		i++;
+arrowRight.addEventListener("mousedown", function (event) {
+	if(event.button === 0){
+		if(i<dots.length-1){
+			i++;
+		}
+		else{
+			i=0;
+		}
+		updateSlide();
+		updateDots();
 	}
-	else{
-		i=0;
-	}
-	updateSlide();
-	updateDots();
 });
-arrowLeft.addEventListener("click", function() {
-	if(i>0){
-		i--;
+arrowRight.addEventListener("contextmenu", function (event) {
+	event.preventDefault();
+}); 
+ 
+arrowLeft.addEventListener("mousedown", function(event) {
+	if (event.button === 0) {
+		if(i>0){
+			i--;
+		}
+		else{
+			i=dots.length-1;
+		}
+		updateSlide();
+		updateDots();
 	}
-	else{
-		i=dots.length-1;
-	}
-	updateSlide();
-	updateDots();
+});
+arrowLeft.addEventListener("contextmenu", function (event) {
+	event.preventDefault();
 });
 
 function updateSlide(){
